@@ -70,7 +70,7 @@ function vidsearch(query) {
 app.post('/search', function (req, res) {
     console.log(req.body.text)
     var text = req.body.text
-    text = text.substr(7);
+    text = encodeURIComponent(text.substr(7));
     console.log(text)
     var vid_id = vidsearch(text);
     console.log(vid_id);
