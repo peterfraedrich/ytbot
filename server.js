@@ -52,7 +52,7 @@ function vidsearch(query) {
     q = '&q=' + query
     var req = https.get({
         host: q_url,
-        path: url_options + apikey + q,
+        path: url_options + apiKey + q,
         port: 443,
         method: "GET",
     }, function(response) {
