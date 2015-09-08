@@ -75,6 +75,7 @@ app.post('/search', function (req, res) {
     var vid_id = vidsearch(text, function() {
         if (err) {
             console.log('http error');
+            res.send({ "text" : "there was an error fetching the video"})
         } else {
             console.log(vid_id);
             body = { "text" : url + vid_id }
