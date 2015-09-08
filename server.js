@@ -19,7 +19,7 @@ var q_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult
 var url = 'http://www.youtube.com/watch?v='
 def_video = '04F4xlWSFh0' // set default video ID (bodies, drowning pool)
 
-var apiPort = '667'
+var apiPort = '80'
 
 // config
 
@@ -81,5 +81,5 @@ app.get('/search', function (req, res) {
 
 
 
-app.listen(apiPort)
+app.listen(process.env.PORT || apiPort)
 console.log('bot is listening on port ' + apiPort)
