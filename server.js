@@ -85,7 +85,7 @@ app.post('/search', function (req, res) {
         }
     });*/
     q = '&q=' + text
-    var req = https.get({
+    https.get({
         host: q_url,
         path: q_options + apiKey + q,
         port: 443,
