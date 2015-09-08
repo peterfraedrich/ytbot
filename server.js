@@ -60,7 +60,7 @@ function vidsearch(query) {
         response.on('data', function(d) {
             body += d;
         });
-        reponse.on('end', function() {
+        response.on('end', function() {
             var parsed = JSON.parse(body);
             return parsed.items[0].id.videoId;
         });
