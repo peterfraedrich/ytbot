@@ -19,7 +19,7 @@ var q_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult
 var url = 'http://www.youtube.com/watch?v='
 def_video = '04F4xlWSFh0' // set default video ID (bodies, drowning pool)
 
-var apiPort = '80'
+var apiPort = '667'
 
 // config
 
