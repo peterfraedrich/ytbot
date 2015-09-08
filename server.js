@@ -1,0 +1,81 @@
+// YTBOT
+
+// reqs
+var connect = require('connect');
+var sys = require('sys');
+var exec = require('child_process');
+var express = require('express');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var errorhandler = require('errorhandler');
+var path = require('path');
+var https = require('https');
+
+// app setup
+var application_root = __dirname;
+var app = express();
+var apikey = "&key=AIzaSyD3UkAlFf7AFo2-jJUNlK-MBu-ufZuMx6A";
+var q_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=video&videoEmbeddable=true"
+var url = 'http://www.youtube.com/watch?v='
+def_video = '04F4xlWSFh0' // set default video ID (bodies, drowning pool)
+
+var apiPort = '667'
+
+// config
+
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    //res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    //res.header('Access-Control-Allow-Headers', 'X-Requested-With, Accept, Origin, Referer, User-Agent, Content-Type, Authorization');
+
+    // intercept OPTIONS method
+    if (req.method === 'OPTIONS') {
+        res.send(200);
+    }
+    else {
+        next();
+    }
+};
+
+app.use(allowCrossDomain);   // make sure this is is called before the router
+app.use(bodyParser());
+app.use(methodOverride());
+app.use(errorhandler());
+app.use(express.static(path.join(application_root, "public")));
+
+// === FUNCTIONS === //
+
+function search(query) {
+    q = '&q=' + query
+    var https.get({
+        hostname: q_url + q + apiKey,
+        port: 443,
+        method: GET,
+    }, function(response) {
+        var body = '';
+        response.on('data', function(d) {
+            body += d;
+        });
+        reponse.on('end', function() {
+            var parsed = JSON.parse(body);
+            return parsed.items[0].id.videoId;
+        });
+    });
+};
+
+// === API === //
+
+
+
+
+
+app.listen(apiPort, function(err) {
+    if (err) {
+        console.log('there was an error booting up the bot')
+        console.log(err)
+    } else {
+        console.log('bot is listening on port ' + apiPort)
+    };
+};
