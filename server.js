@@ -69,6 +69,12 @@ function vidsearch(query) {
 
 app.post('/search', function (req, res) {
     console.log(req)
+    reply = {
+        "body" : {
+            "text" : "hello, your query was ```" + req + "```"
+        }
+    }
+    res.send(reply);
 });
 
 
