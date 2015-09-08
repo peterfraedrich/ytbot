@@ -70,11 +70,9 @@ function vidsearch(query) {
 app.get('/search', function (req, res) {
 
     rez = {
-        "body" : {
             "text" : "```the query was \n" + req + "```"
         }
-    }
-    res.send(rez)
+    res.end(rez)
     //vidsearch(query)
     console.log('something happened')
 });
