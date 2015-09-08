@@ -70,10 +70,10 @@ function vidsearch(query) {
 app.post('/search', function (req, res) {
     console.log(req.body.text)
     text = req.body.text
-    text = text.substr(6);
+    text = text.substr(7);
     console.log(text);
-    reply = text
-    res.send(reply);
+
+    res.send();
 });
 
 
