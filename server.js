@@ -68,11 +68,10 @@ function vidsearch(query) {
 // === API === //
 
 app.get('/search', function (req, res) {
-
-    rez = { "text" : "```the query was \n" + req + "```" };
-    res.send(rez)
+    console.log(req)
     //vidsearch(query)
     console.log('something happened')
+    res.send();
 });
 
 
