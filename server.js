@@ -71,7 +71,9 @@ app.post('/search', function (req, res) {
     console.log(req.body.text)
     var text = req.body.text
     text = text.substr(7);
-    var vid_id = visearch(text);
+    console.log(text)
+    var vid_id = vidsearch(text);
+    console.log(vid_id);
     body = { "text" : url + vid_id }
     res.send(body);
 });
