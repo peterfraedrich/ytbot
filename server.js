@@ -69,11 +69,11 @@ function vidsearch(query) {
 
 app.post('/search', function (req, res) {
     console.log(req.body.text)
-    text = req.body.text
+    var text = req.body.text
     text = text.substr(7);
-    console.log(text);
-
-    res.send();
+    var vid_id = visearch(text);
+    body = { "text" : url + vid_id }
+    res.send(body);
 });
 
 
