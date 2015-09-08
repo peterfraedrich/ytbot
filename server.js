@@ -51,7 +51,7 @@ app.use(express.static(path.join(application_root, "public")));
 function vidsearch(query) {
     q = '&q=' + query
     var req = https.get({
-        host: q_url
+        host: q_url,
         path: q_options + apiKey + q,
         port: 443,
         method: "GET",
