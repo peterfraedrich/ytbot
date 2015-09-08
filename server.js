@@ -74,7 +74,7 @@ app.post('/search', function (req, res) {
     var text = req.body.text
     text = encodeURIComponent(text.substr(7));
     console.log(text)
-    var vid_id = vidsearch(text, function() {
+    /*var vid_id = vidsearch(text, function(err) {
         if (err) {
             console.log('http error');
             res.send({ "text" : "there was an error fetching the video"})
@@ -83,10 +83,26 @@ app.post('/search', function (req, res) {
             body = { "text" : url + vid_id }
             res.send(body);
         }
+    });*/
+    q = '&q=' + text
+    var req = https.get({
+        host: q_url,
+        path: q_options + apiKey + q,
+        port: 443,
+        method: "GET",
+    }, function(response) {
+        var body = '';
+        response.on('data', function(d) {
+            body += d;
+        });
+        response.on('end', function() {
+            var parsed = JSON.parse(body);
+            body = { "text" : url + parsed.items[0].id.videoId }
+            res.send(body);
+        });
     });
 });
 
 
-
-app.listen(process.env.PORT || apiPort)
-console.log('bot is listening on port ' + apiPort)
+//app.listen(process.env.PORT || apiPort)
+//console.log('bot is listening on port ' + apiPort)
