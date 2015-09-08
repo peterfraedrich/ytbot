@@ -103,6 +103,5 @@ app.post('/search', function (req, res) {
     });
 });
 
-
-//app.listen(process.env.PORT || apiPort)
-//console.log('bot is listening on port ' + apiPort)
+app.listen(process.env.PORT || apiPort)
+console.log('bot is listening on port ' + apiPort)
