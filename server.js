@@ -69,9 +69,6 @@ function vidsearch(query) {
 
 app.get('/search', function (req, res) {
     console.log(req)
-    //vidsearch(query)
-    console.log('something happened')
-    res.send();
 });
 
 
