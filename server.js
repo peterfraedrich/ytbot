@@ -15,8 +15,7 @@ var https = require('https');
 var application_root = __dirname;
 var app = express();
 var apiKey = "&key=AIzaSyDgzZpFy_BDYb3OJ92xwB3sT3H_NGIQT1A";
-var q_url = "www.googleapis.com"
-var url_options = '/youtube/v3/search?part=snippet&maxResults=1&type=video&videoEmbeddable=true'
+var q_url = "www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=video&videoEmbeddable=true"
 var url = 'http://www.youtube.com/watch?v='
 def_video = '04F4xlWSFh0' // set default video ID (bodies, drowning pool)
 
@@ -51,8 +50,7 @@ app.use(express.static(path.join(application_root, "public")));
 function vidsearch(query) {
     q = '&q=' + query
     var req = https.get({
-        host: q_url,
-        path: url_options + apiKey + q,
+        hostname: q_url + apiKey + q,
         port: 443,
         method: "GET",
     }, function(response) {
