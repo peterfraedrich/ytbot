@@ -16,7 +16,7 @@ var application_root = __dirname;
 var app = express();
 var apiKey = "&key=AIzaSyDgzZpFy_BDYb3OJ92xwB3sT3H_NGIQT1A";
 var q_url = "www.googleapis.com"
-var q_options = "/youtube/v3/search?part=snippet&maxResults=1&type=video&videoEmbeddable=true"
+var q_options = "/youtube/v3/search?part=snippet&maxResults=1&type=video&videoEmbeddable=true&videoSyndicated=true"
 var url = 'http://www.youtube.com/watch?v='
 def_video = '04F4xlWSFh0' // set default video ID (bodies, drowning pool)
 
