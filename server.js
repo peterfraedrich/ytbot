@@ -72,10 +72,15 @@ app.post('/search', function (req, res) {
     var text = req.body.text
     text = encodeURIComponent(text.substr(7));
     console.log(text)
-    var vid_id = vidsearch(text);
-    console.log(vid_id);
-    body = { "text" : url + vid_id }
-    res.send(body);
+    var vid_id = vidsearch(text, function() {
+        if (err) {
+            console.log('http error');
+        } else {
+            console.log(vid_id);
+            body = { "text" : url + vid_id }
+            res.send(body);
+        }
+    });
 });
 
 
