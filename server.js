@@ -67,7 +67,7 @@ function vidsearch(query) {
 
 // === API === //
 
-app.get('/search', function (req, res) {
+app.post('/search', function (req, res) {
     console.log(req)
 });
 
