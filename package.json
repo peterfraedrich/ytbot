@@ -1,0 +1,27 @@
+{
+  "name": "ytbot",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "express": "~4.0.0",
+    "body-parser": "~1.0.0",
+    "connect": "~1.0.0",
+    "errorhandler": "~1.0.0",
+    "method-override": "~1.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "slack video bot",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/slack-vidbot.git"
+  },
+  "keywords": [
+    "heroku"
+  ],
+  "author": "peter fraedrich",
+  "license": "ISC"
+}

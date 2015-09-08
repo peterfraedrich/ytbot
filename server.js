@@ -2,7 +2,7 @@
 
 // reqs
 var connect = require('connect');
-var sys = require('sys');
+var sys = require('util');
 var exec = require('child_process');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -19,7 +19,7 @@ var q_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult
 var url = 'http://www.youtube.com/watch?v='
 def_video = '04F4xlWSFh0' // set default video ID (bodies, drowning pool)
 
-var apiPort = '667'
+var apiPort = '80'
 
 // config
 
@@ -47,9 +47,9 @@ app.use(express.static(path.join(application_root, "public")));
 
 // === FUNCTIONS === //
 
-function search(query) {
+function vidsearch(query) {
     q = '&q=' + query
-    var https.get({
+    var req = https.get({
         hostname: q_url + q + apiKey,
         port: 443,
         method: GET,
@@ -67,15 +67,13 @@ function search(query) {
 
 // === API === //
 
+app.get('/search', function (req, res) {
+    console.log(req.query)
+    //vidsearch(query)
+    console.log('something happened')
+});
 
 
 
-
-app.listen(apiPort, function(err) {
-    if (err) {
-        console.log('there was an error booting up the bot')
-        console.log(err)
-    } else {
-        console.log('bot is listening on port ' + apiPort)
-    };
-};
+app.listen(apiPort)
+console.log('bot is listening on port ' + apiPort)
